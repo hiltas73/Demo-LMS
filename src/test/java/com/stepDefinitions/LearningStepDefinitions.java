@@ -23,10 +23,9 @@ public class LearningStepDefinitions {
     public void user_should_see_cydeo_learning_page() {
         for(String each : Driver.getDriver().getWindowHandles()){
             Driver.getDriver().switchTo().window(each);
-            System.out.println("Current title while switching windows: " + Driver.getDriver().getTitle());
         }
         BrowserUtils.sleep(5);
-        Assert.assertEquals("LMS navigate test", "CYDEO Learning", Driver.getDriver().getTitle());
+        Assert.assertEquals( "https://my.cydeo.com/member", Driver.getDriver().getCurrentUrl());
     }
 
 }
