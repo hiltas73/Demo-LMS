@@ -9,7 +9,7 @@ Feature: As a user, I want to access detailed course information so that I can c
   Scenario: Access Courses List
     And user click on "Courses" menu item
     Then user should see the "Courses" page
-
+  @coursesDetails
   Scenario Outline: View Course Details
     When user select a course "<course name>"
     Then user should see the details "<course details>"
