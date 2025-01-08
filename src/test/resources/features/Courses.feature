@@ -6,11 +6,11 @@ Feature: As a user, I want to access detailed course information so that I can c
     And user should see Cydeo Learning page
 
   @courses
-  Scenario: Access Courses List
+  Scenario: Ensure that the user can access the list of courses
     And user click on "Courses" menu item
     Then user should see the "Courses" page
   @coursesDetails
-  Scenario Outline: View Course Details
+  Scenario Outline: Ensure that course details are displayed correctly when a course is selected
     When user select a course "<course name>"
     Then user should see the details "<course details>"
     Examples:
