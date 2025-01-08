@@ -42,22 +42,6 @@ public class BrowserUtils {
         return elemTexts;
     }
 
-    /**
-     * Extracts text from list of elements matching the provided locator into new List<String>
-     *
-     * @param locator
-     * @return list of strings
-     */
-    public static List<String> getElementsText(By locator) {
-
-        List<WebElement> elems = Driver.getDriver().findElements(locator);
-        List<String> elemTexts = new ArrayList<>();
-
-        for (WebElement el : elems) {
-            elemTexts.add(el.getText());
-        }
-        return elemTexts;
-    }
 
     /**
      * Performs a pause
@@ -73,41 +57,6 @@ public class BrowserUtils {
     }
 
 
-    /**
-     * Waits for element matching the locator to be visible on the page
-     *
-     * @param locator
-     * @param time
-     * @return
-     */
-    public static WebElement waitForVisibility(By locator, int time) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time));
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
-    /**
-     * Waits for provided element to be clickable
-     *
-     * @param element
-     * @param time
-     * @return
-     */
-    public static WebElement waitForClickablility(WebElement element, int time) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time));
-        return wait.until(ExpectedConditions.elementToBeClickable(element));
-    }
-
-    /**
-     * Waits for element matching the locator to be clickable
-     *
-     * @param locator
-     * @param time
-     * @return
-     */
-    public static WebElement waitForClickablility(By locator, int time) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time));
-        return wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
 
     /**
      * waits for backgrounds processes on the browser to complete
@@ -146,38 +95,6 @@ public class BrowserUtils {
 
 
 
-
-    /**
-     * Waits for element to be not stale
-     *
-     * @param element
-     */
-    public static void waitForStaleElement(WebElement element) {
-        int y = 0;
-        while (y <= 15) {
-            if (y == 1)
-                try {
-                    element.isDisplayed();
-                    break;
-                } catch (StaleElementReferenceException st) {
-                    y++;
-                    try {
-                        Thread.sleep(300);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                } catch (WebDriverException we) {
-                    y++;
-                    try {
-                        Thread.sleep(300);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-        }
-    }
-
-
     /**
      * Clicks on an element using JavaScript
      *
@@ -203,16 +120,6 @@ public class BrowserUtils {
      *
      * @param element
      */
-    public static void doubleClick(WebElement element) {
-        new Actions(Driver.getDriver()).doubleClick(element).build().perform();
-    }
 
-    public static void verifyTitleContains( String expectedInTitle){
-        Assert.assertTrue(Driver.getDriver().getTitle().contains(expectedInTitle));
-    }
-
-    public static void verifyTitle(String expectedTitle){
-        Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
-    }
 
 }
