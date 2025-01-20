@@ -1,5 +1,5 @@
 Feature: As a user, I want to access detailed course information so that I can choose which courses to enroll in
-
+@ui
   Background: The same steps for all scenarios in this page
     Given user logs in to the app
     When user click on "Cydeo Learning"
