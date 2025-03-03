@@ -66,6 +66,7 @@ public class Driver {
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
                     break;
+
             }
 
         }
