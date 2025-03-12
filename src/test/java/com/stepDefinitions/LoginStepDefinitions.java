@@ -36,4 +36,12 @@ public class LoginStepDefinitions {
         loginPage.logOutBtn.click();
     }
 
+    @When("user leave {string} empty")
+    public void userLeaveEmpty(String emailOrPassword) {
+        loginPage.missingCredentialsLogin(emailOrPassword);
+    }
+
+    @Then("{string} should appear under {string}")
+    public void shouldAppearUnder(String message, String emptyField) {
+    }
 }

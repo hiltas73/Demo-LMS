@@ -31,6 +31,17 @@ public class LoginPage extends BasePage{
         Driver.getDriver().findElement(By.xpath("//*[text()='"+ appName +"']/..")).click();
     }
 
-
+    public void missingCredentialsLogin(String emailOrPassword){
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        if (emailOrPassword.equals("email")){
+            this.emailBox.sendKeys("");
+            this.passwordBox.sendKeys(ConfigurationReader.getProperty("password"));
+            this.loginBtn.click();
+        }else {
+            this.emailBox.sendKeys(ConfigurationReader.getProperty("email"));
+            this.passwordBox.sendKeys("");
+            this.loginBtn.click();
+        }
+    }
 
 }

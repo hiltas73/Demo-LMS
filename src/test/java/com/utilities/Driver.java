@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
@@ -58,6 +59,13 @@ public class Driver {
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
                     break;
+                case "ie":
+                    driverPool.set(new InternetExplorerDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+                    break;
+                case "opera":
+                    ;
                 case "headless-chrome":
                     // WebDriverManager.chromedriver().setup();
                     ChromeOptions option = new ChromeOptions();

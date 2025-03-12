@@ -1,4 +1,4 @@
-Feature: Login
+Feature: Login feature
   @login @ui
   Scenario: Login with valid credentials
     Given user navigate to login URL

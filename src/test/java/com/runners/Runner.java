@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/stepDefinitions",
         dryRun = false,
-        tags = "@viewCalendar",
+        tags = "@wip",
         publish = true //generating a report with public link
 )
 
