@@ -8,5 +8,5 @@ Feature: Login feature
 
 	Examples:
 	  | field    | message                   |
-	  | email    | Please fill in this field |
-	  | password | Please fill in this field |
+	  | email    | Please fill in this field. |
+	  | password | Please fill in this field. |

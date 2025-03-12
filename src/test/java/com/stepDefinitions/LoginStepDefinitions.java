@@ -42,6 +42,11 @@ public class LoginStepDefinitions {
     }
 
     @Then("{string} should appear under {string}")
-    public void shouldAppearUnder(String message, String emptyField) {
+    public void shouldAppearUnder(String expectedMessage, String emptyField) {
+        // get actual validation message from the related field email or password
+        String actualMessage = loginPage.getValidationMessage(emptyField);
+
+        // assert validation message is correct
+        Assert.assertEquals("Validation message test",expectedMessage, actualMessage);
     }
 }

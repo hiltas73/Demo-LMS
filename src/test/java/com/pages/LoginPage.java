@@ -20,6 +20,9 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//*[text()='Log Out']")
     public WebElement logOutBtn;
 
+    @FindBy(xpath = "//span[@aria-hidden='true']")
+    public WebElement toolTipHidden;
+
     public void login(String email, String password){
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         this.emailBox.sendKeys(email);
@@ -41,6 +44,16 @@ public class LoginPage extends BasePage{
             this.emailBox.sendKeys(ConfigurationReader.getProperty("email"));
             this.passwordBox.sendKeys("");
             this.loginBtn.click();
+        }
+    }
+
+    public String getValidationMessage(String fieldName){
+        if (fieldName.equals("email")){
+            return this.emailBox.getAttribute("validationMessage");
+        }else if (fieldName.equals("password")){
+            return this.passwordBox.getAttribute("validationMessage");
+        } else {
+            return "Error in validation message";
         }
     }
 
