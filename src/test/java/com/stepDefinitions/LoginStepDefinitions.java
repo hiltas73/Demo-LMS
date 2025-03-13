@@ -14,18 +14,21 @@ public class LoginStepDefinitions {
     public void user_navigate_to_login_url() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
     }
-    @When("user enters email")
-    public void user_enters_email() {
+
+    @When("user enters a valid email")
+    public void userEntersAValidEmail() {
         loginPage.emailBox.sendKeys(ConfigurationReader.getProperty("email"));
     }
-    @When("user enters password")
-    public void user_enters_password() {
+
+    @And("user enters a valid password")
+    public void userEntersAValidPassword() {
         loginPage.passwordBox.sendKeys(ConfigurationReader.getProperty("password"));
     }
-    @When("click on login button")
-    public void click_on_login_button() {
-        loginPage.loginBtn.click();
+
+    @And("user click on Login button button")
+    public void userClickOnLoginButtonButton() {
     }
+
     @Then("user should see home page")
     public void user_should_see_home_page() {
         String actualPageTitle = Driver.getDriver().getTitle();
@@ -47,17 +50,12 @@ public class LoginStepDefinitions {
         String actualMessage = loginPage.getValidationMessage(emptyField);
 
         // assert validation message is correct
-        Assert.assertEquals("Validation message test",expectedMessage, actualMessage);
+        Assert.assertEquals("Validation message test", expectedMessage, actualMessage);
     }
 
     @When("user leaves the email address box empty")
     public void userLeavesTheEmailAddressBoxEmpty() {
         loginPage.emailBox.sendKeys("");
-    }
-
-    @And("user enters a valid password")
-    public void userEntersAValidPassword() {
-        loginPage.passwordBox.sendKeys(ConfigurationReader.getProperty("password"));
     }
 
     @And("user click on Login button")
@@ -68,6 +66,17 @@ public class LoginStepDefinitions {
     @Then("the system display {string} message under the email box")
     public void theSystemDisplayMessageUnderTheEmailBox(String message) {
         String actualMessage = loginPage.emailBox.getAttribute("validationMessage");
-        Assert.assertEquals("Validation message in email box test",message, actualMessage);
+        Assert.assertEquals("Validation message in email box test", message, actualMessage);
+    }
+
+    @And("user leaves the password box empty")
+    public void userLeavesThePasswordBoxEmpty() {
+        loginPage.passwordBox.sendKeys("");
+    }
+
+    @Then("the system display {string} message under the password box")
+    public void theSystemDisplayMessageUnderThePasswordBox(String message) {
+        String actualMessage = loginPage.passwordBox.getAttribute("validationMessage");
+        Assert.assertEquals("Validation message in password box test", message, actualMessage);
     }
 }
