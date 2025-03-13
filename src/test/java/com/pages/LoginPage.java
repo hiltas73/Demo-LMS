@@ -23,6 +23,9 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//span[@aria-hidden='true']")
     public WebElement toolTipHidden;
 
+    @FindBy(xpath = "//button[@data-action='toggle']")
+    public WebElement toggleBtn;
+
     public void login(String email, String password){
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         this.emailBox.sendKeys(email);

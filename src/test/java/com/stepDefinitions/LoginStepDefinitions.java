@@ -84,4 +84,15 @@ public class LoginStepDefinitions {
     public void thePasswordFieldShouldBeMasked() {
         Assert.assertEquals("Password field is masked test","password", loginPage.passwordBox.getAttribute("type"));
     }
+
+    @When("user click on the eye icon")
+    public void userClickOnTheEyeIcon() {
+        loginPage.toggleBtn.click();
+    }
+
+    @Then("the password should be visible")
+    public void thePasswordShouldBeVisible() {
+        //System.out.println(loginPage.passwordBox.getAttribute("type"));
+        Assert.assertEquals("Password should be visible test","text", loginPage.passwordBox.getAttribute("type"));
+    }
 }
