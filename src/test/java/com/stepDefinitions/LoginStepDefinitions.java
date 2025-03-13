@@ -49,4 +49,25 @@ public class LoginStepDefinitions {
         // assert validation message is correct
         Assert.assertEquals("Validation message test",expectedMessage, actualMessage);
     }
+
+    @When("user leaves the email address box empty")
+    public void userLeavesTheEmailAddressBoxEmpty() {
+        loginPage.emailBox.sendKeys("");
+    }
+
+    @And("user enters a valid password")
+    public void userEntersAValidPassword() {
+        loginPage.passwordBox.sendKeys(ConfigurationReader.getProperty("password"));
+    }
+
+    @And("user click on Login button")
+    public void userClickOnLoginButton() {
+        loginPage.loginBtn.click();
+    }
+
+    @Then("the system display {string} message under the email box")
+    public void theSystemDisplayMessageUnderTheEmailBox(String message) {
+        String actualMessage = loginPage.emailBox.getAttribute("validationMessage");
+        Assert.assertEquals("Validation message in email box test",message, actualMessage);
+    }
 }
