@@ -79,4 +79,9 @@ public class LoginStepDefinitions {
         String actualMessage = loginPage.passwordBox.getAttribute("validationMessage");
         Assert.assertEquals("Validation message in password box test", message, actualMessage);
     }
+
+    @Then("the password field should be masked")
+    public void thePasswordFieldShouldBeMasked() {
+        Assert.assertEquals("Password field is masked test","password", loginPage.passwordBox.getAttribute("type"));
+    }
 }

@@ -9,7 +9,6 @@ Feature: Login feature
 	And user click on Login button
 	Then the system display "Please fill in this field." message under the email box
 
-  @wip
   Scenario: User misses entering password
 	When user enters a valid email
 	And user leaves the password box empty
