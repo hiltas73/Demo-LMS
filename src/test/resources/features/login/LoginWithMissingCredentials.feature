@@ -27,18 +27,19 @@ Feature: Login Functionality
 	  | email    | Please fill in this field. |
 	  | password | Please fill in this field. |
 
-#  Scenario Outline: Invalid credential combinations
-#	When user enter "<email>" in email field
-#	And user enter "<password>" in password field
-#	And user click on Login button
-#	Then email and password fields should have red border
-#	And user should see the error message "<error_message>"
-#
-#	Examples:
-#	  | email           | password     | error_message              |
-#	  |                 |              | Please fill in this field. |
-#	  | valid@email.com |              | Please fill in this field. |
-#	  |                 | validPass123 | Please fill in this field. |
-#	  | wrong@email.com | wrongPass123 | Wrong email or password.   |
-#	  | valid@email.com | wrongPass123 | Wrong email or password.   |
-#	  | wrong@email.com | validPass123 | Wrong email or password.   |
+  @invalid-credentials
+  Scenario Outline: Invalid credential combinations
+	When user enter "<email>" in email field
+	And user enter "<password>" in password field
+	And user click on Login button
+	Then email and password fields should have "<border-color>"
+	And user should see the error message "<error_message>"
+
+	Examples:
+	  | email               | password     | error_message              | border-color       |
+	  |                     |              | Please fill in this field. | rgb(99, 93, 255)   |
+	  | valid2025@email.com |              | Please fill in this field. | rgb(156, 154, 228) |
+	  |                     | validPass123 | Please fill in this field. | rgb(192, 193, 210) |
+	  | wrong2025@email.com | wrongPass123 | Wrong email or password.   | rgb(181, 52, 49)   |
+	  | valid2025@email.com | wrongPass123 | Wrong email or password.   | rgb(208, 60, 56)   |
+	  | wrong2025@email.com | validPass123 | Wrong email or password.   | rgb(208, 60, 56)   |

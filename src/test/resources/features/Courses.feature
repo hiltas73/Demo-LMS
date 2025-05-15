@@ -19,3 +19,6 @@ Feature: As a user, I want to access detailed course information so that I can c
       | JAVA SDET SUMMER 2024          | JAVA SDET SUMMER 2024          |
       | SDET Alumni Interview Practice | SDET Alumni Interview Practice |
       | SDET Fast Track                | SDET Fast Track                |
+
+
+    
